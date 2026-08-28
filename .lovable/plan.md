@@ -119,10 +119,10 @@ Avora should read as a living illustrated storybook world. Motion is built along
 
 ## Build order
 
-1. Design system, shell, navigation, and local data layer with stable IDs.
-2. Thoughts: typed capture, stream, local interpretation, filters, search.
-3. Voice: hold-to-speak and session mode, with splitting and the transcription fallback.
-4. Sanctuary: four cards, gentle actions, care config screens, curated meal library.
+1. Design system, motion tokens (`src/lib/motion`), world-event bus, shell, navigation, and local data layer with stable IDs.
+2. Thoughts: typed capture, stream, local interpretation, filters, search — with their motion behaviour built in.
+3. Voice: hold-to-speak and session mode, organic pulse/waveform, splitting, transcription fallback.
+4. Sanctuary: four cards, gentle light-fill actions, care config screens, curated meal library.
 5. Reminders and permission handling.
-6. World: creature art, idle animation system, moods, reactions, discoveries.
-7. Export/import, polish, reduced-motion and accessibility pass.
+6. World: creature art, ambient idle system, environmental life, moods, reactive moments, discoveries.
+7. Export/import, reduced-motion and accessibility pass, performance tuning.

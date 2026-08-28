@@ -2,6 +2,8 @@
 
 A private sanctuary app with three spaces: **Thoughts**, **Sanctuary**, and **World**. V1 is local-first (no account, no cloud), designed so accounts and sync can be added later without restructuring.
 
+Avora is not a productivity, fitness, nutrition, medication, or habit-tracking app. These are individual ways a person can care for themselves. The product's purpose is to help people externalise what's in their head, notice what they need, and gently care for themselves without turning care into performance.
+
 ## Product shape
 
 Three main routes plus settings, with a soft bottom navigation on mobile:
@@ -64,11 +66,13 @@ Avora should read as a living illustrated storybook world. Motion is built along
 **Emotional rule — Avora notices, it does not judge.** No confetti, achievement explosions, streak celebrations, XP, punishment or shame states, aggressive progress mechanics, or excessive bounce. The creature communicates personality through visual behaviour, not constant text or chat dialogue.
 
 **Ambient world layer** (always running on the World page, independent of the user):
+
 - Creature: breathing loop, blinking, glancing around, stretching, dozing, small drifting wander — several loops at different speeds so it never reads as a single repeating cycle.
 - Environment: drifting particles, fireflies, slow-moving light shafts, mist, water shimmer, swaying foliage — each on its own slow cycle with randomised offsets.
 - Lighting: a slow tint/brightness drift tied to time of day, transitioning over long crossfades rather than switching.
 
 **Reactive moments** (the world responding to presence, never scoring it):
+
 - Arriving in World: a soft bloom of light, the creature turning toward you, environment easing into focus.
 - Capturing a thought: a subtle ripple crosses the world and the creature notices — a glance, an ear-turn, a brief glimmer.
 - Completing a care action: warmth and light flow inward; the palette shifts a touch warmer for a while.
@@ -76,6 +80,7 @@ Avora should read as a living illustrated storybook world. Motion is built along
 - Returning after time away: a welcoming brightening and a small discovery, never a reproach. Absence produces no visual decay.
 
 **UI motion across the app**:
+
 - Page transitions: page-turn-like crossfade with a slight parallax drift between spaces.
 - Thought capture: the composer breathes as you type; saving sends the thought upward as a soft dissolve into the stream, which settles rather than pops.
 - Voice: a slow organic pulse ring that responds to input level; session mode shows a drifting waveform, not a jittery meter. Transcription arrives as words fading in.
@@ -90,7 +95,6 @@ Avora should read as a living illustrated storybook world. Motion is built along
 **Future headroom**: all motion lives behind a small `src/lib/motion` layer (tokens for durations/easings, a `useAmbientLoop` hook, a world-event bus that reactions subscribe to). Richer creature animation later — more states, richer art, or a canvas renderer — swaps the renderer behind that boundary without touching feature code.
 
 ---
-
 
 ## Technical notes
 

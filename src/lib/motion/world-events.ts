@@ -23,7 +23,7 @@ export type WorldEventKind =
 export type WorldEvent = {
   kind: WorldEventKind;
   at: number;
-  detail?: string;
+  detail?: string | undefined;
 };
 
 type Listener = (event: WorldEvent) => void;

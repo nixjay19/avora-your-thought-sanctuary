@@ -53,9 +53,44 @@ A separate, immersive page — like opening a page in a storybook. One original 
 
 ## Tone and language
 
-Gentle, unhurried, first-person. No compliance dashboard, no metrics surfaced anywhere. Warm dark-leaning palette with soft light, generous spacing, restrained motion that respects reduced-motion preferences.
+Gentle, unhurried, first-person. No compliance dashboard, no metrics surfaced anywhere. Warm dark-leaning palette with soft light, generous spacing.
+
+## Motion direction (core, not polish)
+
+Avora should read as a living illustrated storybook world. Motion is built alongside each feature, not added afterwards — every screen below ships with its motion behaviour defined.
+
+**Motion language**: slow, organic, soft, atmospheric. Tactile and slightly magical. Closer to turning a page, breathing, drifting, glowing and rippling than to bouncing cards or standard app micro-interactions. Long easings (600–1200ms for atmosphere, 200–400ms for touch feedback), no springs that overshoot, no snap.
+
+**Emotional rule — Avora notices, it does not judge.** No confetti, achievement explosions, streak celebrations, XP, punishment or shame states, aggressive progress mechanics, or excessive bounce. The creature communicates personality through visual behaviour, not constant text or chat dialogue.
+
+**Ambient world layer** (always running on the World page, independent of the user):
+- Creature: breathing loop, blinking, glancing around, stretching, dozing, small drifting wander — several loops at different speeds so it never reads as a single repeating cycle.
+- Environment: drifting particles, fireflies, slow-moving light shafts, mist, water shimmer, swaying foliage — each on its own slow cycle with randomised offsets.
+- Lighting: a slow tint/brightness drift tied to time of day, transitioning over long crossfades rather than switching.
+
+**Reactive moments** (the world responding to presence, never scoring it):
+- Arriving in World: a soft bloom of light, the creature turning toward you, environment easing into focus.
+- Capturing a thought: a subtle ripple crosses the world and the creature notices — a glance, an ear-turn, a brief glimmer.
+- Completing a care action: warmth and light flow inward; the palette shifts a touch warmer for a while.
+- Moving: the creature becomes playful — bouncier idles, faster particles, brighter glow.
+- Returning after time away: a welcoming brightening and a small discovery, never a reproach. Absence produces no visual decay.
+
+**UI motion across the app**:
+- Page transitions: page-turn-like crossfade with a slight parallax drift between spaces.
+- Thought capture: the composer breathes as you type; saving sends the thought upward as a soft dissolve into the stream, which settles rather than pops.
+- Voice: a slow organic pulse ring that responds to input level; session mode shows a drifting waveform, not a jittery meter. Transcription arrives as words fading in.
+- Care actions: the tap fills the card with warm light; "Tended with care ✨" fades in and drifts away quietly.
+- Confirmations and notifications: fade-and-drift, never toast-slam.
+- Discoveries: revealed by a slow fade with a faint shimmer — found, not awarded.
+
+**Performance and cost**: CSS animations and transforms first, with `requestAnimationFrame` only where genuinely needed; layered SVG/CSS illustrations rather than sprite sheets or 3D. No WebGL, no Three.js, no heavy animation library. Animate `transform`/`opacity`/`filter` only, cap concurrent particles, and pause the ambient loop when the World page isn't visible.
+
+**Reduced motion**: `prefers-reduced-motion` is honoured everywhere — ambient loops stop, reactions become gentle opacity/colour changes, transitions become instant crossfades. The world still feels warm, just still. An in-app "calm motion" toggle mirrors this for users who want it regardless of OS setting.
+
+**Future headroom**: all motion lives behind a small `src/lib/motion` layer (tokens for durations/easings, a `useAmbientLoop` hook, a world-event bus that reactions subscribe to). Richer creature animation later — more states, richer art, or a canvas renderer — swaps the renderer behind that boundary without touching feature code.
 
 ---
+
 
 ## Technical notes
 

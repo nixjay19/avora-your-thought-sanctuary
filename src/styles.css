@@ -377,6 +377,20 @@
   animation: breathe var(--dur-breath) var(--ease-breath) infinite;
 }
 
+@keyframes composer-breathe {
+  0%,
+  100% {
+    box-shadow: var(--shadow-page);
+  }
+  50% {
+    box-shadow: var(--shadow-page), var(--glow-soft);
+  }
+}
+
+@utility composer-glow {
+  animation: composer-breathe var(--dur-breath) var(--ease-breath) infinite;
+}
+
 @utility storybook-card {
   background-color: color-mix(in oklab, var(--card) 88%, transparent);
   border: 1px solid var(--border);

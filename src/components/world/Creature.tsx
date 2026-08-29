@@ -9,14 +9,16 @@ type Gesture = "idle" | "look-left" | "look-right" | "stretch" | "doze";
 const moodGlow: Record<CreatureMood, string> = {
   curious: "var(--glow-soft)",
   content: "var(--glow-warm)",
-  sleepy: "0 0 30px -8px color-mix(in oklab, var(--water) 40%, transparent)",
+  sleepy: "0 0 30px -8px color-mix(in oklab, var(--world-plum) 50%, transparent)",
   excited: "0 0 55px -6px color-mix(in oklab, var(--lantern) 60%, transparent)",
   peaceful: "var(--glow-soft)",
 };
 
 /**
- * The one original creature Avora belongs to — layered SVG, CSS-driven idle
- * life. No game state: it breathes, blinks, glances around, and notices you.
+ * Lumen — an original, small magical being with no obvious species. Soft,
+ * asymmetric, and limbless like a wisp of living light, not a mascot with
+ * antennae. Layered SVG, CSS-driven idle life; no game state, just breath,
+ * blinks, glances, and a quiet way of noticing you.
  */
 export function Creature({
   mood,
@@ -92,7 +94,7 @@ export function Creature({
         aria-hidden
         className="absolute bottom-3 left-1/2 h-3 w-16 -translate-x-1/2 rounded-full"
         style={{
-          background: "color-mix(in oklab, var(--dusk) 60%, transparent)",
+          background: "color-mix(in oklab, var(--world-plum) 65%, transparent)",
           filter: "blur(4px)",
         }}
       />
@@ -142,45 +144,40 @@ export function Creature({
               style={{ animation: "glimmer 4.2s ease-in-out infinite", animationDelay: "0.6s" }}
             />
 
-            {/* tufts */}
+            {/* a single curling wisp, off-centre, like a flicker of candle-smoke */}
             <path
-              d="M82,80 C74,66 68,55 64,44 C72,52 82,61 89,74 Z"
-              fill="var(--lantern)"
-              opacity={0.85}
-            />
-            <path
-              d="M118,80 C126,66 132,55 136,44 C128,52 118,61 111,74 Z"
+              d="M92,74 C84,60 88,44 78,32 C93,36 103,49 100,65 C99,70 95,73 92,74 Z"
               fill="var(--lantern)"
               opacity={0.85}
             />
             <circle
-              cx="64"
-              cy="44"
+              cx="78"
+              cy="32"
               r="3"
-              fill="var(--primary-glow)"
+              fill="var(--world-honey)"
               style={{ animation: "glimmer 3.6s ease-in-out infinite" }}
             />
-            <circle
-              cx="136"
-              cy="44"
-              r="3"
-              fill="var(--primary-glow)"
-              style={{ animation: "glimmer 3.6s ease-in-out infinite", animationDelay: "1.1s" }}
+
+            {/* a small curled petal, tucked low on the other side for balance */}
+            <path
+              d="M123,88 C133,82 142,85 144,93 C138,98 127,97 121,91 Z"
+              fill="var(--lantern)"
+              opacity={0.55}
             />
 
-            {/* body */}
+            {/* body — slightly irregular outline, like a hand-drawn illustration */}
             <path
-              d="M62,122 C60,92 76,68 100,67 C124,68 140,92 138,122 C136,152 120,170 100,170 C80,170 64,152 62,122 Z"
+              d="M59,124 C56,94 74,67 101,66 C126,68 142,90 139,121 C137,151 122,171 99,170 C79,169 61,152 59,124 Z"
               fill={`url(#${gradientId})`}
             />
 
             {/* belly glow */}
-            <ellipse cx="100" cy="142" rx="19" ry="13" fill="var(--mist)" opacity={0.22} />
+            <ellipse cx="100" cy="142" rx="19" ry="13" fill="var(--world-cream)" opacity={0.2} />
 
             {/* mouth */}
             <path
               d="M92,128 Q100,132.5 108,128"
-              stroke="var(--dusk)"
+              stroke="var(--world-plum)"
               strokeWidth="2"
               strokeLinecap="round"
               fill="none"
@@ -195,11 +192,11 @@ export function Creature({
               }}
             >
               <ellipse
-                cx="86"
+                cx="85"
                 cy="114"
-                rx="6"
-                ry="8"
-                fill="var(--dusk)"
+                rx="6.5"
+                ry="8.5"
+                fill="var(--world-plum)"
                 style={
                   reduced
                     ? undefined
@@ -215,7 +212,7 @@ export function Creature({
                 cy="114"
                 rx="6"
                 ry="8"
-                fill="var(--dusk)"
+                fill="var(--world-plum)"
                 style={
                   reduced
                     ? undefined
@@ -227,17 +224,19 @@ export function Creature({
                       }
                 }
               />
-              <circle cx="88" cy="111" r="1.4" fill="var(--mist)" />
-              <circle cx="116" cy="111" r="1.4" fill="var(--mist)" />
+              <circle cx="87.5" cy="111" r="1.6" fill="var(--world-cream)" />
+              <circle cx="82.5" cy="116" r="0.8" fill="var(--world-cream)" opacity={0.7} />
+              <circle cx="116.5" cy="111" r="1.6" fill="var(--world-cream)" />
+              <circle cx="111.5" cy="116" r="0.8" fill="var(--world-cream)" opacity={0.7} />
 
               {/* eyelids, for dozing */}
               <rect
-                x="79"
+                x="78.5"
                 y="106"
                 width="14"
                 height="16"
                 rx="7"
-                fill="var(--card)"
+                fill="var(--world-cream)"
                 opacity={dozing ? 0.95 : 0}
                 style={{ transition: "opacity 900ms var(--ease-drift)" }}
               />
@@ -247,7 +246,7 @@ export function Creature({
                 width="14"
                 height="16"
                 rx="7"
-                fill="var(--card)"
+                fill="var(--world-cream)"
                 opacity={dozing ? 0.95 : 0}
                 style={{ transition: "opacity 900ms var(--ease-drift)" }}
               />

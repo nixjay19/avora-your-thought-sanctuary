@@ -46,13 +46,13 @@ export function WorldEnvironment({
       className="relative h-full w-full overflow-hidden"
       style={{ background: "var(--gradient-world)" }}
     >
-      {/* light shafts */}
+      {/* light shafts — warm, like sun or candlelight through a storybook page */}
       <div
         aria-hidden
         className="absolute -top-6 left-[20%] h-2/3 w-16 rotate-6"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in oklab, var(--mist) 30%, transparent), transparent)",
+            "linear-gradient(180deg, color-mix(in oklab, var(--world-honey) 26%, transparent), transparent)",
           animation: "glimmer 7s ease-in-out infinite",
         }}
       />
@@ -61,7 +61,7 @@ export function WorldEnvironment({
         className="absolute -top-4 left-[62%] h-1/2 w-10 -rotate-6"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in oklab, var(--mist) 24%, transparent), transparent)",
+            "linear-gradient(180deg, color-mix(in oklab, var(--world-honey) 20%, transparent), transparent)",
           animation: "glimmer 8.5s ease-in-out infinite",
           animationDelay: "-2.5s",
         }}
@@ -72,19 +72,19 @@ export function WorldEnvironment({
           aria-hidden
           className="absolute right-[10%] top-[22%] size-2 rounded-full"
           style={{
-            background: "var(--water)",
-            boxShadow: "0 0 16px 4px color-mix(in oklab, var(--water) 60%, transparent)",
+            background: "var(--world-honey)",
+            boxShadow: "0 0 16px 4px color-mix(in oklab, var(--world-honey) 55%, transparent)",
             animation: "glimmer 5s ease-in-out infinite",
           }}
         />
       )}
 
-      {/* distant water / mist */}
+      {/* a low, warm haze — enchanted mist, not a cold lake */}
       <div
         aria-hidden
         className="absolute inset-x-[-10%] bottom-[8%] h-16 rounded-[100%]"
         style={{
-          background: "color-mix(in oklab, var(--water) 30%, transparent)",
+          background: "color-mix(in oklab, var(--world-rose) 28%, transparent)",
           filter: "blur(10px)",
         }}
       />
@@ -95,18 +95,18 @@ export function WorldEnvironment({
         className="absolute inset-x-[-15%] bottom-[30%] h-1/3 rounded-t-[100%]"
         style={{
           background:
-            "linear-gradient(180deg, transparent, color-mix(in oklab, var(--dusk) 35%, transparent))",
+            "linear-gradient(180deg, transparent, color-mix(in oklab, var(--world-plum) 40%, transparent))",
           filter: "blur(6px)",
         }}
       />
 
-      {/* moss mound */}
+      {/* moss mound, fading to warm soil rather than cool background */}
       <div
         aria-hidden
         className="absolute inset-x-0 bottom-0 h-[46%] rounded-t-[50%]"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in oklab, var(--moss) 55%, transparent), color-mix(in oklab, var(--moss) 30%, var(--background)))",
+            "linear-gradient(180deg, color-mix(in oklab, var(--moss) 55%, transparent), color-mix(in oklab, var(--moss) 35%, var(--world-brown)))",
         }}
       >
         {starMoss && (
@@ -115,7 +115,7 @@ export function WorldEnvironment({
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(2px 2px at 20% 30%, var(--mist), transparent), radial-gradient(2px 2px at 70% 50%, var(--mist), transparent), radial-gradient(1.5px 1.5px at 45% 70%, var(--mist), transparent)",
+                "radial-gradient(2px 2px at 20% 30%, var(--world-cream), transparent), radial-gradient(2px 2px at 70% 50%, var(--world-cream), transparent), radial-gradient(1.5px 1.5px at 45% 70%, var(--world-cream), transparent)",
               animation: "glimmer 6s ease-in-out infinite",
             }}
           />
@@ -148,13 +148,13 @@ export function WorldEnvironment({
       <div
         aria-hidden
         className="absolute bottom-[20%] left-[22%] h-4 w-8 rounded-full"
-        style={{ background: "color-mix(in oklab, var(--dusk) 55%, var(--card))" }}
+        style={{ background: "color-mix(in oklab, var(--world-plum) 55%, var(--world-brown))" }}
       />
       {secondStone && (
         <div
           aria-hidden
           className="absolute bottom-[24%] left-[34%] h-3 w-5 rounded-full"
-          style={{ background: "color-mix(in oklab, var(--dusk) 45%, var(--card))" }}
+          style={{ background: "color-mix(in oklab, var(--world-plum) 40%, var(--world-brown))" }}
         />
       )}
 
@@ -199,7 +199,7 @@ export function WorldEnvironment({
           aria-hidden
           className="absolute inset-x-[-10%] bottom-[10%] h-16 rounded-[100%] border"
           style={{
-            borderColor: "color-mix(in oklab, var(--water) 60%, transparent)",
+            borderColor: "color-mix(in oklab, var(--world-honey) 55%, transparent)",
             animation: "ripple-out var(--dur-atmos) var(--ease-drift) both",
           }}
         />

@@ -97,7 +97,7 @@ export function parseRemindAt(text: string, from = new Date()): string | undefin
 
   const dayOffsets: [RegExp, number][] = [
     [/\btomorrow\b/, 1],
-    [/\bnext week\b/, 7];
+    [/\bnext week\b/, 7],
   ];
   let dayOffset = 0;
   for (const [pattern, offset] of dayOffsets) {

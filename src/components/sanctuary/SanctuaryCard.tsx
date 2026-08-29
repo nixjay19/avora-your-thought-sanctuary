@@ -10,12 +10,15 @@ export function SanctuaryCard({
   icon: Icon,
   title,
   description,
+  accent = "var(--lantern)",
   tendedAt,
   children,
 }: {
   icon: LucideIcon;
   title: string;
   description?: string;
+  /** A design-token color reference (e.g. "var(--water)") tinting this area's icon. */
+  accent?: string | undefined;
   tendedAt: number;
   children: ReactNode;
 }) {
@@ -34,13 +37,13 @@ export function SanctuaryCard({
         />
       )}
 
-      <div className="relative flex items-start gap-3">
+      <div className="relative flex items-center gap-3">
         <span
           aria-hidden
-          className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full"
+          className="flex size-9 shrink-0 items-center justify-center rounded-full"
           style={{
-            background: "color-mix(in oklab, var(--lantern) 16%, transparent)",
-            color: "var(--lantern)",
+            background: `color-mix(in oklab, ${accent} 16%, transparent)`,
+            color: accent,
           }}
         >
           <Icon className="size-4" strokeWidth={1.6} />
@@ -51,7 +54,7 @@ export function SanctuaryCard({
         </div>
       </div>
 
-      <div className="relative mt-4">{children}</div>
+      <div className="relative mt-3.5">{children}</div>
 
       {tendedAt > 0 && (
         <p

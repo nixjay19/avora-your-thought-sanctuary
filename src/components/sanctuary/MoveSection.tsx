@@ -12,7 +12,7 @@ export function MoveSection() {
 
   if (types.length === 0) {
     return (
-      <SanctuaryCard icon={Wind} title="Move" tendedAt={0}>
+      <SanctuaryCard icon={Wind} title="Move" accent="var(--water)" tendedAt={0}>
         <p className="text-sm text-muted-foreground">
           No movement preferences yet.{" "}
           <Link to="/settings" className="text-primary underline-offset-4 hover:underline">
@@ -29,6 +29,7 @@ export function MoveSection() {
       icon={Wind}
       title="Move"
       description={`Maybe ${types[0]?.toLowerCase()}? Or not — the offer stands.`}
+      accent="var(--water)"
       tendedAt={tendedAt}
     >
       <button

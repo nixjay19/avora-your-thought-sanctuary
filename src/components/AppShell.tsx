@@ -16,13 +16,7 @@ const spaces = [
  * little parallax drift, keyed on pathname so every move between spaces
  * feels like turning a page rather than swapping a screen.
  */
-export function AppShell({
-  children,
-  bleed = false,
-}: {
-  children: ReactNode;
-  bleed?: boolean;
-}) {
+export function AppShell({ children, bleed = false }: { children: ReactNode; bleed?: boolean }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
 
   return (
@@ -39,12 +33,15 @@ export function AppShell({
       <main
         key={pathname}
         className={cn("page-enter flex-1", bleed ? "" : "mx-auto w-full max-w-2xl px-5 pt-8")}
-        style={{ paddingBottom: bleed ? undefined : "9.5rem" }}
+        style={{ paddingBottom: bleed ? undefined : "var(--space-content-bottom)" }}
       >
         {children}
       </main>
 
-      <nav className="fixed inset-x-0 bottom-0 z-40 flex justify-center pb-5 pt-3">
+      <nav
+        className="fixed inset-x-0 bottom-0 z-40 flex justify-center pt-3"
+        style={{ paddingBottom: "var(--nav-bottom-offset)" }}
+      >
         <div
           className="flex items-center gap-1 rounded-full border border-border px-2 py-2"
           style={{
@@ -62,9 +59,14 @@ export function AppShell({
                 aria-label={label}
                 className={cn(
                   "group relative flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-all",
-                  active ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground",
+                  active
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
-                style={{ transitionDuration: "var(--dur-touch)", transitionTimingFunction: "var(--ease-drift)" }}
+                style={{
+                  transitionDuration: "var(--dur-touch)",
+                  transitionTimingFunction: "var(--ease-drift)",
+                }}
               >
                 {active && (
                   <span

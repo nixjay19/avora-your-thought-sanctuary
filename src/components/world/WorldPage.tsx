@@ -99,7 +99,7 @@ export function WorldPage() {
 
       <div
         className="storybook-card relative mt-6 overflow-hidden"
-        style={{ aspectRatio: "4 / 5" }}
+        style={{ aspectRatio: "1 / 1" }}
       >
         <WorldEnvironment
           discoveries={data.world.discoveries}
@@ -107,7 +107,7 @@ export function WorldPage() {
           warmKey={warmKey}
           bloomKey={bloomKey}
         >
-          <div className="absolute inset-0 flex items-end justify-center pb-12">
+          <div className="absolute inset-0 flex items-end justify-center pb-8">
             <Creature
               mood={data.world.mood}
               name={name}

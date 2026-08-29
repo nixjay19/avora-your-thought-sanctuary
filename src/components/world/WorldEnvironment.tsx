@@ -89,32 +89,21 @@ export function WorldEnvironment({
         }}
       />
 
-      {/* fireflies */}
-      {fireflies &&
-        FIREFLIES.map((fly, index) => (
-          <span
-            key={index}
-            aria-hidden
-            className="absolute size-1.5 rounded-full"
-            style={
-              {
-                left: fly.left,
-                bottom: fly.bottom,
-                background: "var(--primary-glow)",
-                boxShadow: "0 0 8px 2px color-mix(in oklab, var(--lantern) 70%, transparent)",
-                "--particle-x": index % 2 === 0 ? "12px" : "-12px",
-                "--particle-opacity": 0.85,
-                animation: `drift-up ${fly.duration} ease-in-out infinite`,
-                animationDelay: fly.delay,
-              } as unknown as CSSProperties
-            }
-          />
-        ))}
+      {/* a hazy midground ridge, for depth between the sky and the moss */}
+      <div
+        aria-hidden
+        className="absolute inset-x-[-15%] bottom-[30%] h-1/3 rounded-t-[100%]"
+        style={{
+          background:
+            "linear-gradient(180deg, transparent, color-mix(in oklab, var(--dusk) 35%, transparent))",
+          filter: "blur(6px)",
+        }}
+      />
 
       {/* moss mound */}
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 h-[38%] rounded-t-[50%]"
+        className="absolute inset-x-0 bottom-0 h-[46%] rounded-t-[50%]"
         style={{
           background:
             "linear-gradient(180deg, color-mix(in oklab, var(--moss) 55%, transparent), color-mix(in oklab, var(--moss) 30%, var(--background)))",
@@ -132,6 +121,28 @@ export function WorldEnvironment({
           />
         )}
       </div>
+
+      {/* fireflies, hovering above the moss rather than lost behind it */}
+      {fireflies &&
+        FIREFLIES.map((fly, index) => (
+          <span
+            key={index}
+            aria-hidden
+            className="absolute size-1 rounded-full"
+            style={
+              {
+                left: fly.left,
+                bottom: fly.bottom,
+                background: "var(--primary-glow)",
+                boxShadow: "0 0 6px 1.5px color-mix(in oklab, var(--lantern) 55%, transparent)",
+                "--particle-x": index % 2 === 0 ? "12px" : "-12px",
+                "--particle-opacity": 0.65,
+                animation: `drift-up ${fly.duration} ease-in-out infinite`,
+                animationDelay: fly.delay,
+              } as unknown as CSSProperties
+            }
+          />
+        ))}
 
       {/* stones */}
       <div

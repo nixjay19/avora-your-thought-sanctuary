@@ -18,11 +18,12 @@ function Sanctuary() {
         A quiet place to tend to yourself. No targets, no tally.
       </p>
 
-      <div className="mt-6 space-y-4">
+      <div className="mt-6 space-y-5">
         <NourishSection />
         <CareItemsSection
           icon={Pill}
           title="Medication"
+          accent="var(--lantern)"
           area="medication"
           list="medications"
           actionLabel="I took it"
@@ -31,6 +32,7 @@ function Sanctuary() {
         <CareItemsSection
           icon={Sparkles}
           title="Supplements"
+          accent="var(--moss)"
           area="supplements"
           list="supplements"
           actionLabel="I took them"

@@ -87,6 +87,16 @@ export function Creature({
         animation: reduced ? undefined : "wander var(--dur-drift) var(--ease-breath) infinite",
       }}
     >
+      {/* contact shadow — stays put while the body breathes above it, so it reads as grounded */}
+      <span
+        aria-hidden
+        className="absolute bottom-3 left-1/2 h-3 w-16 -translate-x-1/2 rounded-full"
+        style={{
+          background: "color-mix(in oklab, var(--dusk) 60%, transparent)",
+          filter: "blur(4px)",
+        }}
+      />
+
       <div className={cn(!reduced && "breathing")}>
         <div
           style={{
@@ -114,6 +124,23 @@ export function Creature({
                 <stop offset="100%" stopColor="var(--lantern)" />
               </linearGradient>
             </defs>
+
+            {/* tail wisp, tucked behind the body */}
+            <path
+              d="M112,150 C130,158 144,166 150,180"
+              stroke="var(--lantern)"
+              strokeWidth="5"
+              strokeLinecap="round"
+              fill="none"
+              opacity={0.7}
+            />
+            <circle
+              cx="150"
+              cy="180"
+              r="2.6"
+              fill="var(--primary-glow)"
+              style={{ animation: "glimmer 4.2s ease-in-out infinite", animationDelay: "0.6s" }}
+            />
 
             {/* tufts */}
             <path
@@ -149,6 +176,16 @@ export function Creature({
 
             {/* belly glow */}
             <ellipse cx="100" cy="142" rx="19" ry="13" fill="var(--mist)" opacity={0.22} />
+
+            {/* mouth */}
+            <path
+              d="M92,128 Q100,132.5 108,128"
+              stroke="var(--dusk)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              opacity={0.5}
+            />
 
             {/* eyes */}
             <g

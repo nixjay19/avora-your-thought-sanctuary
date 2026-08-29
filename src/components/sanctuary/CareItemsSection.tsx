@@ -10,6 +10,7 @@ import { SanctuaryCard } from "./SanctuaryCard";
 export function CareItemsSection({
   icon,
   title,
+  accent,
   area,
   list,
   actionLabel,
@@ -17,6 +18,7 @@ export function CareItemsSection({
 }: {
   icon: LucideIcon;
   title: string;
+  accent?: string;
   area: CareArea;
   list: "medications" | "supplements";
   actionLabel: string;
@@ -33,7 +35,7 @@ export function CareItemsSection({
 
   if (items.length === 0) {
     return (
-      <SanctuaryCard icon={icon} title={title} tendedAt={0}>
+      <SanctuaryCard icon={icon} title={title} accent={accent} tendedAt={0}>
         <p className="text-sm text-muted-foreground">
           {emptyHint}{" "}
           <Link to="/settings" className="text-primary underline-offset-4 hover:underline">
@@ -46,7 +48,7 @@ export function CareItemsSection({
   }
 
   return (
-    <SanctuaryCard icon={icon} title={title} tendedAt={tendedAt}>
+    <SanctuaryCard icon={icon} title={title} accent={accent} tendedAt={tendedAt}>
       <div className="space-y-2">
         {items.map((item) => (
           <div

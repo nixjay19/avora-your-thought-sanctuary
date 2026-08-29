@@ -18,7 +18,7 @@ function Settings() {
       <h1 className="text-2xl text-foreground">Settings</h1>
       <p className="mt-1 text-sm text-muted-foreground">Quietly shapes Sanctuary and reminders.</p>
 
-      <div className="mt-6 space-y-4">
+      <div className="mt-6 space-y-5">
         <FoodSettings />
         <CareItemSettings
           list="medications"
